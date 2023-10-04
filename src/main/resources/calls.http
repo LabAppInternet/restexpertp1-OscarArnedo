@@ -18,7 +18,7 @@ POST http://localhost:8080/users/josep@tecnocampus.cat/notes
 content-type: application/json
 
 {
-  "title": "Creating a new note for testing",
+  "title": "",
   "content": "I'm creating a new note for testing. Hope it works!!!"
 }
 

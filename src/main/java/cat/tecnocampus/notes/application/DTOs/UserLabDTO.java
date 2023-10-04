@@ -1,7 +1,7 @@
 package cat.tecnocampus.notes.application.DTOs;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -13,10 +13,16 @@ public class UserLabDTO {
 
     private String username;
 
+    @Size(min = 3, message = "Name must be at least 3 characters long")
+    @Pattern(regexp = "^[A-Z].*", message = "Name must start with a capital letter")
     private String name;
 
+    @Size(min = 3, message = "Name must be at least 3 characters long")
+    @Pattern(regexp = "^[A-Z].*", message = "Name must start with a capital letter")
     private String secondName;
 
+    @NotEmpty(message = "Email cannot be empty")
+    @Email(message = "Invalid email address")
     private String email;
 
     private final Map<String, NoteLabDTO> ownedNotes;

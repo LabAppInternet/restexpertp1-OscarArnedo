@@ -1,11 +1,17 @@
 package cat.tecnocampus.notes.application.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 
 public class NoteLabDTO {
 
+    @NotEmpty(message = "Title cannot be empty")
+    @Size(min=3, max=255, message = "Title must be between 3 and 255 characters")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "Title must contain only letters")
     private String title;
     private String content;
 
