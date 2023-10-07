@@ -1,6 +1,7 @@
 package cat.tecnocampus.notes.application.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Pattern;
@@ -19,17 +20,15 @@ public class NoteLabDTO {
 
     private LocalDateTime dateEdit;
 
+    @JsonIgnore
     private UserLabDTO owner;
 
     public NoteLabDTO() {
     }
 
-    /*
     public UserLabDTO getOwner() {
         return owner;
     }
-
-     */
 
     public void setOwner(UserLabDTO owner) {
         this.owner = owner;
