@@ -2,6 +2,7 @@ package cat.tecnocampus.notes.application.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.hypersistence.tsid.TSID;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Pattern;
@@ -9,6 +10,8 @@ import jakarta.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
 public class NoteLabDTO {
+
+    private TSID id;
 
     @NotEmpty(message = "Title cannot be empty")
     @Size(min=3, max=255, message = "Title must be between 3 and 255 characters")
@@ -41,6 +44,10 @@ public class NoteLabDTO {
         dateEdit = LocalDateTime.now();
     }
 
+    public String getId() {
+        return id.toString();
+    }
+
     public String getTitle() {
         return title;
     }
@@ -56,6 +63,10 @@ public class NoteLabDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     public LocalDateTime getDateEdit() {
         return dateEdit;
+    }
+
+    public void setId(TSID id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
